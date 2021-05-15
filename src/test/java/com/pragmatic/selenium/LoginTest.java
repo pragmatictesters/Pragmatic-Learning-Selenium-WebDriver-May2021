@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Pragmatic Test Labs (Private) Limited
  *
@@ -24,6 +26,9 @@ public class LoginTest {
     @BeforeMethod
     public void beforeMethod() {
         driver = new ChromeDriver();
+        //Implicit wait is NOT RECOMMENDED IN REAL PROJECT
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         driver.get("http://hrm.pragmatictestlabs.com");
     }
 
@@ -33,13 +38,28 @@ public class LoginTest {
         driver.close();
     }
 
+
+
+    @Test
+    public void testLoginWithValidUserCredentials() {
+        driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+        driver.findElement(By.id("txtPassword")).sendKeys("Ptl@#321");
+        driver.findElement(By.id("btnLogin")).click();
+        String strError = driver.findElement(By.id("welcome")).getText();
+        Assert.assertEquals(strError, "Username cannot be empty");
+
+    }
+
+
     @Test
     public void testLoginWithBlankUsernameAndBlankPassword() {
+
         driver.findElement(By.id("txtUsername")).sendKeys("");
         driver.findElement(By.id("txtPassword")).sendKeys("");
         driver.findElement(By.id("btnLogin")).click();
         String strError = driver.findElement(By.id("spanMessage")).getText();
         Assert.assertEquals(strError, "Username cannot be empty");
+
     }
 
 
