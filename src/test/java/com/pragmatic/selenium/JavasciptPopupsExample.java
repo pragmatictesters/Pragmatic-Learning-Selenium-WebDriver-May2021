@@ -97,6 +97,7 @@ public class JavasciptPopupsExample {
 
     @Test
     public void testPromptTypeTextOK() {
+        //driver.findElement(By.xpath("//*[@id=\"cid_16\"]/div/div/button")).click(); //THIS IS NOT RECOMMENDED. XPath is brittle and not human readable
         driver.findElement(By.xpath("//button[text()='Prompt Alert']")).click();
         Alert prompt = driver.switchTo().alert();
         prompt.sendKeys("Selenium");

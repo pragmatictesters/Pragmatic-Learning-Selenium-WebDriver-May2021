@@ -1,0 +1,53 @@
+
+
+Plan for the day
+1. Handling synchronisation/timing  issues
+    wait for presence of an element
+    Wait till element is enabled
+    Wait till element is intractable
+    Wait till <Condition>
+
+    Never use Thread.sleep(waittime);
+    Implicit wait (Global, work or presence of the element ) (Not recommended by experts ,Fail slowly )
+    Explicit wait (Recommended, usually sufficient )
+    Fluent wait (Advanced configuration )
+    Custom wait
+    Third party extensions/APIs (awaitability)
+
+2. Managing Alerts
+
+XPath for location elements
+Can be used when ID or Name are not present in the element
+Absolute XPath  /html/body/form/div[2]/input
+Relative Xpath
+Exact XPath
+
+/html/body/div[2]/div/div[1]/form/div[5]/input
+
+//input[@id="btnLogin"]
+
+<button>Test</button>
+<button type="button" class="form-submit-button-simple_blue" onclick="myAlertFunction()" style="margin-top: 30px">Simple Alert</button>
+
+//elementName[text()='VisibleText']
+
+//button[text()='Simple Alert']
+
+//*[@id="cid_16"]/div/div/button
+
+
+//elementName[contains(text(),'partial visible text')]
+
+
+Test confirmation
+TC_C_001 verify the message in the confirmation popup
+TC_C_002 verify the click OK button in the confirmation popup
+TC_C_003 Verify the click cancel button in the confirmation popup
+
+
+
+
+3. Action Class
+
+
+

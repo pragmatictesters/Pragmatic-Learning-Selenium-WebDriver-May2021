@@ -4,3 +4,21 @@
 TestNG and Unit Testing
 
 
+
+
+Setup browser driver  [BEFORE : ONCE ONLY FOR THE PROJECT]
+
+//
+Launch the browser
+Navigate to login URL
+// [BEFORE : ONCE ONLY FOR THE TEST CASE/METHOD  @Test]
+
+Actions
+..
+..
+..
+Assertions
+
+Close the browser  [AFTER : ONCE PER TEST METHOD]
+
+

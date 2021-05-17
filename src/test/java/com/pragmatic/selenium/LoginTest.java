@@ -2,6 +2,7 @@ package com.pragmatic.selenium;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -49,6 +50,35 @@ public class LoginTest {
         Assert.assertEquals(strError, "Username cannot be empty");
 
     }
+
+
+    @Test
+    public void testLoginWithValidUserCredentialsWithSubmit() {
+        driver.findElement(By.id("txtUsername")).sendKeys("Admin");
+        driver.findElement(By.id("txtPassword")).sendKeys("Ptl@#321");
+        driver.findElement(By.id("txtPassword")).submit();
+        String strWelcome = driver.findElement(By.id("welcome")).getText();
+        Assert.assertEquals(strWelcome, "Welcome Admin");
+    }
+
+     @Test
+    public void testLoginWithValidUserCredentialsWithEnterKey() {
+         System.out.println(driver.findElement(By.id("txtPassword")).isSelected());
+        driver.findElement(By.id("txtUsername")).sendKeys("Admin" + Keys.TAB);
+        System.out.println(driver.findElement(By.id("txtPassword")).isSelected());
+         driver.findElement(By.id("txtPassword")).sendKeys("Ptl@#321");
+        driver.findElement(By.id("txtPassword")).sendKeys(Keys.ENTER);
+        String strWelcome = driver.findElement(By.id("welcome")).getText();
+        Assert.assertEquals(strWelcome, "Welcome Admin");
+    }
+
+
+
+
+
+
+
+
 
 
     @Test
