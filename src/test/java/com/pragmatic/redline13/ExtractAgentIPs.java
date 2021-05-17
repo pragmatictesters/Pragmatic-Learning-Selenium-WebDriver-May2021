@@ -46,7 +46,7 @@ public class ExtractAgentIPs {
     @Test
     public void extractTheIPs() {
         driver.findElement(By.name("loginEmail")).sendKeys("janesh@pragmatictesters.com");
-        driver.findElement(By.name("loginPassword")).sendKeys("Test-4321");
+        driver.findElement(By.name("loginPassword")).sendKeys("password");
         driver.findElement(By.xpath("//input[@value='Login']")).click();
         driver.get("https://www.redline13.com/AWS/ListServers");
 
